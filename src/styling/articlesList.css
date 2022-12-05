@@ -1,0 +1,28 @@
+main {
+  margin: 20px 10px;
+  border: maroon 5px solid;
+}
+
+.articles-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.articleslist__button {
+  margin: 10px;
+}
+
+@media screen and (min-width: 430px) {
+  main {
+    margin: 20px 15vw;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  main {
+    margin: 10px 10px;
+    width: 250px;
+  }
+}

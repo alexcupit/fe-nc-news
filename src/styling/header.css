@@ -1,0 +1,12 @@
+header {
+  border: 5px solid purple;
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 10px;
+}
+
+@media screen and (max-width: 250px) {
+  header {
+    width: 250px;
+  }
+}
