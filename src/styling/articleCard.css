@@ -1,0 +1,39 @@
+.article-card {
+  border: 3px green solid;
+  border-radius: 10px;
+  margin: 10px 10%;
+  /* width: 90%; */
+}
+
+.article-card > h3 {
+  padding-bottom: 15px;
+  border-bottom: 1px solid;
+}
+
+.article-card__topic {
+  background-color: grey;
+}
+
+.article-card__date {
+  font-style: italic;
+}
+
+@media screen and (min-width: 430px) {
+  .article-card {
+    margin: 10px 10px;
+    width: 250px;
+    height: 250px;
+    /* position: relative; */
+  }
+  /* .article-card__topic {
+    position: absolute;
+    top: 160px;
+  } */
+}
+
+@media screen and (max-width: 250px) {
+  .article-card {
+    margin: 10px 10px;
+    width: 180px;
+  }
+}
