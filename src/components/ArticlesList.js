@@ -7,10 +7,13 @@ function ArticlesList() {
   const [articles, setArticles] = useState([]);
   const [articlesLoading, setArticlesLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [maxPage, setMaxPage] = useState(1);
 
   useEffect(() => {
-    getArticles(page).then((articles) => {
+    setArticlesLoading(true);
+    getArticles(page).then(({ articles, total_count }) => {
       setArticles(articles);
+      setMaxPage(Math.ceil(total_count / 10));
       setArticlesLoading(false);
     });
   }, [page]);
@@ -39,6 +42,7 @@ function ArticlesList() {
           })}
         </section>
       )}
+      <p>page {page}</p>
       <button
         style={{ display: page === 1 ? 'none' : 'inline' }}
         onClick={prevHandler}
@@ -46,7 +50,11 @@ function ArticlesList() {
       >
         Previous
       </button>
-      <button onClick={nextHandler} className='articleslist__button'>
+      <button
+        style={{ display: page === maxPage ? 'none' : 'inline' }}
+        onClick={nextHandler}
+        className='articleslist__button'
+      >
         Next
       </button>
     </main>

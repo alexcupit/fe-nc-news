@@ -12,6 +12,6 @@ export const getArticles = (page) => {
       },
     })
     .then((res) => {
-      return res.data.articles;
+      return res.data;
     });
 };
