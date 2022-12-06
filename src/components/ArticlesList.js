@@ -20,7 +20,7 @@ function ArticlesList() {
     });
   }, [page]);
 
-  const pageHandler = (e) => {
+  const handlePage = (e) => {
     if (e.target.innerText === 'Next') {
       setPage((currPage) => ++currPage);
     } else if (e.target.innerText === 'Previous') {
@@ -51,14 +51,14 @@ function ArticlesList() {
       <p>page {page}</p>
       <button
         style={{ display: page === 1 ? 'none' : 'inline' }}
-        onClick={pageHandler}
+        onClick={handlePage}
         className='articles-list__button'
       >
         Previous
       </button>
       <button
         style={{ display: page === maxPage ? 'none' : 'inline' }}
-        onClick={pageHandler}
+        onClick={handlePage}
         className='articles-list__button'
       >
         Next

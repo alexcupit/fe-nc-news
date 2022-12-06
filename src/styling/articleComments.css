@@ -55,6 +55,6 @@
 
 @media screen and (min-width: 430px) {
   .articlecomments {
-    margin: 20px 20vw;
+    margin: 20px 0;
   }
 }

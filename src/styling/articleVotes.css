@@ -1,0 +1,56 @@
+.article-votes {
+  border: green 5px solid;
+  margin: 20px 10vw;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-areas: 'downvote votes upvote';
+  padding: 10px;
+}
+
+.article-votes__downvote {
+  grid-area: downvote;
+}
+
+.article-votes__totalvotes {
+  grid-area: votes;
+  margin: 0;
+}
+
+.article-votes__upvote {
+  grid-area: upvote;
+}
+
+.article-votes--err {
+  margin: 20px 10vw;
+  padding: 10px;
+}
+
+@media screen and (max-width: 250px) {
+  .article-votes {
+    margin: 0;
+    width: 250px;
+  }
+
+  .article-votes--err {
+    margin: 0;
+    width: 250px;
+  }
+}
+
+@media screen and (min-width: 430px) {
+  .article-votes {
+    margin-left: 5%;
+    height: 150px;
+    width: 100px;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 'downvote' 'votes' 'upvote';
+    align-items: center;
+  }
+
+  .article-votes__err {
+    display: block;
+    height: min-content;
+    padding: 3px;
+  }
+}
