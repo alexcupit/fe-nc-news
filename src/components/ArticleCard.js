@@ -6,7 +6,7 @@ function ArticleCard({ article: { title, author, topic, created_at } }) {
     .substring(0, created_at.indexOf('T'))
     .split('-');
   return (
-    <div className='article-card'>
+    <div>
       <h3>{title}</h3>
       <h4>Written by: {author}</h4>
       <p className='article-card__date'>

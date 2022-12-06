@@ -15,3 +15,7 @@ export const getArticles = (page) => {
       return res.data;
     });
 };
+
+export const getArticleById = (article_id) => {
+  return newsAPI.get(`articles/${article_id}`).then((res) => res.data.article);
+};

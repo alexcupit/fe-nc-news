@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getArticles } from '../api';
 import '../styling/articlesList.css';
+import '../styling/articleCard.css';
 import ArticleCard from './ArticleCard';
+import { Link } from 'react-router-dom';
 
 function ArticlesList() {
   const [articles, setArticles] = useState([]);
@@ -20,25 +22,33 @@ function ArticlesList() {
 
   const nextHandler = () => {
     setPage((currPage) => {
-      return currPage + 1;
+      return ++currPage;
     });
   };
 
   const prevHandler = () => {
     setPage((currPage) => {
-      return currPage - 1;
+      return --currPage;
     });
   };
 
   return (
-    <main>
+    <main className='articleslist'>
       <h1>Articles:</h1>
       {articlesLoading ? (
         <p>Loading...</p>
       ) : (
         <section className='articles-container'>
           {articles.map((article) => {
-            return <ArticleCard key={article.article_id} article={article} />;
+            return (
+              <Link
+                className='article-card'
+                to={`/articles/${article.article_id}`}
+                key={article.article_id}
+              >
+                <ArticleCard article={article} />
+              </Link>
+            );
           })}
         </section>
       )}
