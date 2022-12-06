@@ -4,6 +4,7 @@ import { getArticleById } from '../api';
 import '../styling/article.css';
 import { dateConversion } from '../utils/dateConversion';
 import ArticleComments from './ArticleComments';
+import ArticleVotes from './ArticleVotes';
 
 function Article() {
   const [articleLoading, setArticleLoading] = useState(true);
@@ -35,6 +36,7 @@ function Article() {
           </li>
           <li className='breadcrumb__item'>{` > ${title}`}</li>
         </ol>
+
         <article className='article'>
           <h2 className='article__title'>{title}</h2>
           <h4 className='article__author'>{author}</h4>
@@ -45,8 +47,8 @@ function Article() {
           </h6>
           <hr className='article__rule' />
           <p className='article__body'>{body}</p>
-          <p className='article__votes'>Votes: {votes}</p>
         </article>
+        <ArticleVotes votes={votes} article_id={article_id} />
         <ArticleComments />
       </main>
     );
