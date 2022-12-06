@@ -1,10 +1,9 @@
 import React from 'react';
 import '../styling/articleCard.css';
+import { dateConversion } from '../utils/dateConversion';
 
 function ArticleCard({ article: { title, author, topic, created_at } }) {
-  const [year, month, day] = created_at
-    .substring(0, created_at.indexOf('T'))
-    .split('-');
+  const { year, month, day } = dateConversion(created_at);
   return (
     <div>
       <h3>{title}</h3>
