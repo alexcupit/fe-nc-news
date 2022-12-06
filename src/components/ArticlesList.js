@@ -20,20 +20,16 @@ function ArticlesList() {
     });
   }, [page]);
 
-  const nextHandler = () => {
-    setPage((currPage) => {
-      return ++currPage;
-    });
-  };
-
-  const prevHandler = () => {
-    setPage((currPage) => {
-      return --currPage;
-    });
+  const pageHandler = (e) => {
+    if (e.target.innerText === 'Next') {
+      setPage((currPage) => ++currPage);
+    } else if (e.target.innerText === 'Previous') {
+      setPage((currPage) => --currPage);
+    }
   };
 
   return (
-    <main className='articleslist'>
+    <main className='articles-list'>
       <h1>Articles:</h1>
       {articlesLoading ? (
         <p>Loading...</p>
@@ -55,15 +51,15 @@ function ArticlesList() {
       <p>page {page}</p>
       <button
         style={{ display: page === 1 ? 'none' : 'inline' }}
-        onClick={prevHandler}
-        className='articleslist__button'
+        onClick={pageHandler}
+        className='articles-list__button'
       >
         Previous
       </button>
       <button
         style={{ display: page === maxPage ? 'none' : 'inline' }}
-        onClick={nextHandler}
-        className='articleslist__button'
+        onClick={pageHandler}
+        className='articles-list__button'
       >
         Next
       </button>

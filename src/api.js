@@ -16,6 +16,12 @@ export const getArticles = (page) => {
     });
 };
 
+export const getCommentsByArticleId = (article_id) => {
+  return newsAPI
+    .get(`/articles/${article_id}/comments`)
+    .then((res) => res.data.comments);
+};
+
 export const getArticleById = (article_id) => {
   return newsAPI.get(`articles/${article_id}`).then((res) => res.data.article);
 };

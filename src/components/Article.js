@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getArticleById } from '../api';
 import '../styling/article.css';
+import { dateConversion } from '../utils/dateConversion';
+import ArticleComments from './ArticleComments';
 
 function Article() {
   const [articleLoading, setArticleLoading] = useState(true);
@@ -16,22 +18,14 @@ function Article() {
     });
   }, []);
 
-  const { title, author, created_at, body, topic } = article;
+  const { title, author, created_at, body, topic, votes } = article;
 
   if (articleLoading) {
     return <p>Loading...</p>;
   } else {
-    //creates_at in fomat 2020-11-22T11:13:00.000Z
-    const [year, month, day] = created_at
-      .substring(0, created_at.indexOf('T'))
-      .split('-');
-
-    const time = created_at.substring(
-      created_at.indexOf(':') + 1,
-      created_at.indexOf(':') + 6
-    );
+    const { year, month, day, time } = dateConversion(created_at);
     return (
-      <main>
+      <main className='article-container'>
         <ol className='breadcrumb'>
           <li className='breadcrumb__item'>
             <Link to='/'>Home</Link>
@@ -46,15 +40,14 @@ function Article() {
           <h4 className='article__author'>{author}</h4>
           <h6 className='article__date'>
             {day}/{month}/{year}
-            <br></br>
+            <br />
             {time}
           </h6>
-
-          <p className='article__body'>
-            <hr></hr>
-            {body}
-          </p>
+          <hr className='article__rule' />
+          <p className='article__body'>{body}</p>
+          <p className='article__votes'>Votes: {votes}</p>
         </article>
+        <ArticleComments />
       </main>
     );
   }
