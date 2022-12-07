@@ -5,8 +5,6 @@ import ArticlesList from './components/ArticlesList';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import LogIn from './components/LogIn';
-import MyAccount from './components/MyAccount';
 
 function App() {
   return (
@@ -14,8 +12,6 @@ function App() {
       <Header />
       <Navbar />
       <Routes>
-        <Route path='/myaccount' element={<MyAccount />} />
-        <Route path='/login' element={<LogIn />} />
         <Route path='/' element={<ArticlesList />} />
         <Route path={'/articles/:article_id'} element={<Article />} />
       </Routes>
