@@ -13,7 +13,7 @@ function MyAccount() {
     return (
       <main className='myaccount'>
         <h2 className='myaccount__title'>My Account</h2>
-        <img className='myaccount__img' src={avatar_url} />
+        <img className='myaccount__img' src={avatar_url} alt='user avaar' />
         <h3 className='myaccount__name'>{name}</h3>
         <h4 className='myaccount__username'>{username}</h4>
         <button

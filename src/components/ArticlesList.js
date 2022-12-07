@@ -3,22 +3,24 @@ import { getArticles } from '../api';
 import '../styling/articlesList.css';
 import '../styling/articleCard.css';
 import ArticleCard from './ArticleCard';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import ArticlesOptions from './ArticlesOptions';
 
 function ArticlesList() {
   const [articles, setArticles] = useState([]);
   const [articlesLoading, setArticlesLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(1);
+  const { topic } = useParams();
 
   useEffect(() => {
     setArticlesLoading(true);
-    getArticles(page).then(({ articles, total_count }) => {
+    getArticles(page, topic).then(({ articles, total_count }) => {
       setArticles(articles);
       setMaxPage(Math.ceil(total_count / 10));
       setArticlesLoading(false);
     });
-  }, [page]);
+  }, [page, topic]);
 
   const handlePage = (e) => {
     if (e.target.innerText === 'Next') {
@@ -30,22 +32,25 @@ function ArticlesList() {
 
   return (
     <main className='articles-list'>
-      <h1>Articles:</h1>
+      <h1>Articles</h1>
       {articlesLoading ? (
         <p>Loading...</p>
       ) : (
-        <section className='articles-container'>
-          {articles.map((article) => {
-            return (
-              <Link
-                className='article-card'
-                to={`/articles/${article.article_id}`}
-                key={article.article_id}
-              >
-                <ArticleCard article={article} />
-              </Link>
-            );
-          })}
+        <section>
+          <ArticlesOptions />
+          <div className='articles-container'>
+            {articles.map((article) => {
+              return (
+                <Link
+                  className='article-card'
+                  to={`/articles/${article.article_id}`}
+                  key={article.article_id}
+                >
+                  <ArticleCard article={article} />
+                </Link>
+              );
+            })}
+          </div>
         </section>
       )}
       <p>page {page}</p>

@@ -1,0 +1,32 @@
+.topics {
+  margin: 20px;
+}
+.topics-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.topics-card {
+  margin: 10px;
+  border: 3px blue solid;
+  border-radius: 10px;
+  width: 80%;
+}
+
+@media screen and (min-width: 430px) {
+  .topics {
+    margin: 20px 15vw;
+  }
+  .topics-card {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .topics {
+    margin: 10px 0px;
+    width: 250px;
+  }
+}

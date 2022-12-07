@@ -4,11 +4,12 @@ const newsAPI = axios.create({
   baseURL: 'https://black-springbok-cap.cyclic.app/api/',
 });
 
-export const getArticles = (page) => {
+export const getArticles = (page, topic) => {
   return newsAPI
     .get('/articles', {
       params: {
         p: page,
+        topic: topic,
       },
     })
     .then((res) => {
@@ -40,4 +41,8 @@ export const postComment = (article_id, username, body) => {
   return newsAPI
     .post(`/articles/${article_id}/comments`, { username, body })
     .then((res) => res.data.comment);
+};
+
+export const getTopics = () => {
+  return newsAPI.get('/topics').then((res) => res.data.topics);
 };
