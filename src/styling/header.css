@@ -3,6 +3,14 @@ header {
   font-size: 3rem;
   font-weight: bold;
   padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__img {
+  height: 20px;
 }
 
 @media screen and (max-width: 250px) {
