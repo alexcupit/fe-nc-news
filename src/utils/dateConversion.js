@@ -4,8 +4,8 @@ export const dateConversion = (created_at) => {
     .split('-');
 
   const time = created_at.substring(
-    created_at.indexOf(':') + 1,
-    created_at.indexOf(':') + 6
+    created_at.indexOf('T') + 1,
+    created_at.indexOf('T') + 6
   );
 
   return { day, month, year, time };
