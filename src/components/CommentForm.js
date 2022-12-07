@@ -29,7 +29,7 @@ function CommentForm({ commentPosting, setCommentPosting, article_id }) {
 
   if (err) {
     return (
-      <div className='new comment newcomment__err'>
+      <div className='newcomment newcomment__err'>
         <p>Sorry, there's been an error. Please try agian.</p>
       </div>
     );
@@ -42,14 +42,15 @@ function CommentForm({ commentPosting, setCommentPosting, article_id }) {
           <label className='newcomment__label' htmlFor='comment'>
             Leave a comment
             <br />
-            <input
+            <textarea
               className='newcomment__input'
               onChange={handleInput}
               id='comment'
               value={newComment}
               required
               placeholder='add your comment here...'
-            ></input>
+              rows='5'
+            ></textarea>
           </label>
           <button className='newcomment__submit' type='submit'>{`>`}</button>
         </form>
