@@ -11,6 +11,7 @@ function Header() {
       <Link to={user ? '/myaccount' : '/login'}>
         <img
           className='header__img'
+          alt='user icon'
           src='https://cdn-icons-png.flaticon.com/512/747/747376.png'
         />
       </Link>

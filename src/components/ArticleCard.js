@@ -2,7 +2,8 @@ import React from 'react';
 import '../styling/articleCard.css';
 import { dateConversion } from '../utils/dateConversion';
 
-function ArticleCard({ article: { title, author, topic, created_at } }) {
+function ArticleCard({ article }) {
+  const { title, author, topic, created_at, votes, comment_count } = article;
   const { year, month, day } = dateConversion(created_at);
   return (
     <div>
@@ -12,6 +13,8 @@ function ArticleCard({ article: { title, author, topic, created_at } }) {
         {day}/{month}/{year}
       </p>
       <p className='article-card__topic'>{topic}</p>
+      <p className='article-card__votes'>Votes: {votes}</p>
+      <p className='article-card__comments'>Comments: {comment_count}</p>
     </div>
   );
 }
