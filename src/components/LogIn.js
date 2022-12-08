@@ -1,20 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
-import { getUsers } from '../api';
 import { UserContext } from '../contexts/UserContext';
 import '../styling/login.css';
 
 function LogIn() {
-  const [users, setUsers] = useState([]);
-  const { setUser, user } = useContext(UserContext);
-  const [usersLoading, setUsersLoading] = useState(true);
-
-  useEffect(() => {
-    getUsers().then((users) => {
-      setUsers(users);
-      setUsersLoading(false);
-    });
-  }, []);
+  const { setUser, user, users, usersLoading } = useContext(UserContext);
 
   if (user) {
     return <Navigate to='/myaccount' />; //should use redirect instead?
