@@ -3,7 +3,7 @@ import { getArticles } from '../api';
 import '../styling/articlesList.css';
 import '../styling/articleCard.css';
 import ArticleCard from './ArticleCard';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import ArticlesOptions from './ArticlesOptions';
 
 function ArticlesList() {
@@ -12,15 +12,27 @@ function ArticlesList() {
   const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(1);
   const { topic } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams('');
+  const order = searchParams.get('order');
+  const sort_by = searchParams.get('sort_by');
+  const [selectedSortBy, setSelectedSortBy] = useState('date-desc');
 
   useEffect(() => {
     setArticlesLoading(true);
-    getArticles(page, topic).then(({ articles, total_count }) => {
-      setArticles(articles);
-      setMaxPage(Math.ceil(total_count / 10));
-      setArticlesLoading(false);
-    });
-  }, [page, topic]);
+    getArticles(page, topic, sort_by, order).then(
+      ({ articles, total_count }) => {
+        setArticles(articles);
+        setMaxPage(Math.ceil(total_count / 10));
+        setArticlesLoading(false);
+      }
+    );
+  }, [page, topic, sort_by, order]);
+
+  useEffect(() => {
+    if (!searchParams.get('sort_by')) {
+      setSelectedSortBy('date-desc');
+    }
+  }, [searchParams]);
 
   const handlePage = (e) => {
     if (e.target.innerText === 'Next') {
@@ -37,7 +49,12 @@ function ArticlesList() {
         <p>Loading...</p>
       ) : (
         <section>
-          <ArticlesOptions />
+          <ArticlesOptions
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+            selectedSortBy={selectedSortBy}
+            setSelectedSortBy={setSelectedSortBy}
+          />
           <div className='articles-container'>
             {articles.map((article) => {
               return (

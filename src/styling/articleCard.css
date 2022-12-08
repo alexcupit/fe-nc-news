@@ -3,6 +3,9 @@
   border-radius: 10px;
   margin: 10px 10px;
   width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .article-card > h3 {
@@ -22,7 +25,7 @@
   .article-card {
     margin: 10px 10px;
     width: 250px;
-    height: 250px;
+    height: 300px;
     /* position: relative; */
   }
   /* .article-card__topic {
