@@ -18,7 +18,6 @@ function Article() {
     setArticleLoading(true);
     getArticleById(article_id)
       .then((article) => {
-        console.log(article, '<prom art');
         setArticle(article);
         setArticleLoading(false);
       })
