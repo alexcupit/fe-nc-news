@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './contexts/UserContext';
 import { TopicsProvider } from './contexts/TopicsContext';
+import { ErrorProvider } from './contexts/ErrorContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +13,9 @@ root.render(
     <BrowserRouter>
       <UserProvider>
         <TopicsProvider>
-          <App />
+          <ErrorProvider>
+            <App />
+          </ErrorProvider>
         </TopicsProvider>
       </UserProvider>
     </BrowserRouter>

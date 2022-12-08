@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import LogIn from './components/LogIn';
 import MyAccount from './components/MyAccount';
 import TopicsList from './components/TopicsList';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <Navbar />
       <Routes>
+        <Route path='*' element={<ErrorPage />} />
         <Route path='/myaccount' element={<MyAccount />} />
         <Route path='/login' element={<LogIn />} />
         <Route path='/' element={<ArticlesList />} />
