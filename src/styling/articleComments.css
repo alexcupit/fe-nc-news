@@ -12,7 +12,7 @@
 .comment {
   border: orange 5px solid;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: min-content auto min-content;
   grid-template-rows: auto auto auto;
   grid-template-areas:
     'avatar author date'
@@ -33,7 +33,6 @@
   grid-area: author;
   font-weight: bold;
   margin: 0;
-  margin-left: -15px;
 }
 
 .comment__votes {
@@ -68,6 +67,7 @@
   }
   .comment__author {
     font-size: 0.9rem;
+    margin-left: -10px;
   }
   .comment__avatar {
     height: 25px;

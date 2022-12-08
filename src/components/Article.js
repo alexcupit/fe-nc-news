@@ -1,29 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getArticleById } from '../api';
+import { ErrorContext } from '../contexts/ErrorContext';
 import '../styling/article.css';
 import { dateConversion } from '../utils/dateConversion';
 import ArticleComments from './ArticleComments';
 import ArticleVotes from './ArticleVotes';
+import ErrorPage from './ErrorPage';
 
 function Article() {
   const [articleLoading, setArticleLoading] = useState(true);
-  const [article, setArticle] = useState({});
-
+  const [article, setArticle] = useState({ author: '', created_at: '' });
+  const { err, setErr } = useContext(ErrorContext);
   const { article_id } = useParams();
+
   useEffect(() => {
     setArticleLoading(true);
-    getArticleById(article_id).then((article) => {
-      setArticle(article);
-      setArticleLoading(false);
-    });
-  }, []);
+    getArticleById(article_id)
+      .then((article) => {
+        setArticle(article);
+        setArticleLoading(false);
+      })
+      .catch((err) => {
+        setErr(err);
+      });
+  }, [setErr]);
 
-  const { title, author, created_at, body, topic, votes } = article;
-
-  if (articleLoading) {
+  if (err) {
+    return <ErrorPage err={err} />;
+  } else if (articleLoading) {
     return <p>Loading...</p>;
   } else {
+    const { title, author, created_at, body, topic, votes } = article;
+    console.log(created_at, 'created');
     const { year, month, day, time } = dateConversion(created_at);
     return (
       <main className='article-container'>
