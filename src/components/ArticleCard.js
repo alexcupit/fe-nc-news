@@ -6,16 +6,16 @@ function ArticleCard({ article }) {
   const { title, author, topic, created_at, votes, comment_count } = article;
   const { year, month, day } = dateConversion(created_at);
   return (
-    <div>
-      <h3>{title}</h3>
-      <h4>Written by: {author}</h4>
+    <grid className='article-card__grid'>
+      <h3 className='article-card__title'>{title}</h3>
+      <h4 className='article-card__author'>written by: {author}</h4>
       <p className='article-card__date'>
         {day}/{month}/{year}
       </p>
       <p className='article-card__topic'>{topic}</p>
       <p className='article-card__votes'>Votes: {votes}</p>
       <p className='article-card__comments'>Comments: {comment_count}</p>
-    </div>
+    </grid>
   );
 }
 

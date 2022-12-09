@@ -55,7 +55,9 @@ function ArticleComments() {
             commentPosting={commentPosting}
           />
         ) : (
-          <p>please log in to leave a comment</p>
+          <p className='articlecomments__nologin'>
+            please log in to leave a comment
+          </p>
         )}
 
         {comments.map((comment) => {

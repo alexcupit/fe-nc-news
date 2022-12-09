@@ -1,12 +1,23 @@
 nav {
-  border: teal 5px solid;
-  padding: 5px;
+  /* border: teal 5px solid; */
   display: flex;
   flex-direction: row;
+  background-color: var(--dark-shades);
+  border-top: var(--light-accent) 2px solid;
+  border-bottom: var(--light-accent) 2px solid;
+  /* box-shadow: 5px 5px 5px var(--dark-shades), -5px 5px 5px var(--dark-shades); */
 }
 
 .nav__topic {
-  margin: 10px 5px;
+  padding: 10px 5px;
+  color: var(--light-shades);
+  font-size: 0.9rem;
+}
+
+.nav__topic--active {
+  padding: 10px 5px;
+  background-color: var(--light-accent);
+  font-size: 0.9rem;
 }
 
 @media screen and (max-width: 250px) {

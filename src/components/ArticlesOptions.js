@@ -64,10 +64,10 @@ function ArticlesOptions({
           onChange={handleSortBy}
           defaultValue={selectedSortBy}
         >
-          <option value='date-desc'>Date: newest first</option>
-          <option value='date-asc'>Date: oldest first</option>
-          <option value='votes-desc'>Votes: most first</option>
-          <option value='votes-asc'>Votes: lowest first</option>
+          <option value='date-desc'>date: newest first</option>
+          <option value='date-asc'>date: oldest first</option>
+          <option value='votes-desc'>votes: most first</option>
+          <option value='votes-asc'>votes: lowest first</option>
         </select>
       </label>
     </div>
