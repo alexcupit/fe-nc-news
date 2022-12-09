@@ -47,12 +47,12 @@ function ArticlesList() {
 
   if (err) {
     return <ErrorPage err={err} />;
-  } else if (articles.length === 0) {
+  } else if (maxPage === 0) {
     return <ErrorPage err='no articles found' />;
   } else {
     return (
       <main className='articles-list'>
-        <h1>Articles</h1>
+        <h1>Latest News</h1>
         {articlesLoading ? (
           <p>Loading...</p>
         ) : (
@@ -78,7 +78,9 @@ function ArticlesList() {
             </div>
           </section>
         )}
-        <p>page {page}</p>
+        <p>
+          page {page} of {maxPage}
+        </p>
         <button
           style={{ display: page === 1 ? 'none' : 'inline' }}
           onClick={handlePage}

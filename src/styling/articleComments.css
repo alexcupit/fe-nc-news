@@ -1,16 +1,22 @@
 .articlecomments {
-  border: magenta 5px solid;
+  border: var(--main-color) 5px solid;
   margin: 20px 10vw;
+  background-color: var(--dark-shades);
 }
 
 .articlecomments__h3 {
   text-align: left;
-  margin: 5px;
-  /* padding: 10px; */
+  margin: 10px;
+  color: var(--light-shades);
+}
+
+.articlecomments__nologin {
+  color: var(--light-shades);
 }
 
 .comment {
-  border: orange 5px solid;
+  border: var(--main-color) 5px solid;
+  background-color: var(--light-shades);
   display: grid;
   grid-template-columns: min-content auto min-content;
   grid-template-rows: auto auto auto;
@@ -55,6 +61,9 @@
   height: 30px;
   width: 30px;
   grid-area: avatar;
+  background-color: white;
+  border: var(--main-color) solid 2px;
+  border-radius: 15px;
 }
 
 @media screen and (max-width: 250px) {

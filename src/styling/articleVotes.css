@@ -1,10 +1,11 @@
 .article-votes {
-  border: green 5px solid;
+  border: var(--main-color) 5px solid;
   margin: 20px 10vw;
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-areas: 'downvote votes upvote';
   padding: 10px;
+  background-color: var(--dark-shades);
 }
 
 .article-votes__downvote {
@@ -14,6 +15,7 @@
 .article-votes__totalvotes {
   grid-area: votes;
   margin: 0;
+  color: var(--light-shades);
 }
 
 .article-votes__upvote {
@@ -23,6 +25,25 @@
 .article-votes--err {
   margin: 20px 10vw;
   padding: 10px;
+  color: var(--light-shades);
+}
+
+.article-votes > button {
+  padding: 5px;
+  border: 3px solid var(--light-shades);
+  background-color: var(--dark-shades);
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+.article-votes > button:hover {
+  background-color: var(--dark-accent);
+  color: var(--light-shades);
+}
+
+.article-votes > button:active {
+  background-color: var(--light-accent);
+  transition: none;
 }
 
 @media screen and (max-width: 250px) {

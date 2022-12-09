@@ -1,5 +1,5 @@
-header {
-  border: 5px solid purple;
+.header {
+  /* border: 5px solid purple; */
   font-size: 3rem;
   font-weight: bold;
   padding: 10px;
@@ -7,10 +7,17 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--main-color);
 }
 
 .header__img {
   height: 20px;
+}
+
+.header__link {
+  display: flex;
+  align-items: center;
+  height: 0;
 }
 
 @media screen and (max-width: 250px) {

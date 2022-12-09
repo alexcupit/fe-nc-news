@@ -3,7 +3,7 @@
 }
 
 .article {
-  border: pink 5px solid;
+  /* border: pink 5px solid; */
   margin: 20px 10vw;
   padding: 15px;
   display: grid;
@@ -30,20 +30,23 @@
 
 .article__author {
   grid-area: author;
-  color: grey;
+  color: slategrey;
   margin: 0;
 }
 
 .article__date {
   grid-area: date;
-  color: grey;
+  color: slategrey;
   margin: 0;
 }
 
 .article__rule {
   grid-area: rule;
-  size: 5px;
+  height: 3px;
+  margin: 12px 0;
   width: 100%;
+  background-color: var(--main-color);
+  border: none;
 }
 
 .breadcrumb {

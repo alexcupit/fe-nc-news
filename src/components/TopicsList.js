@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
 import { TopicsContext } from '../contexts/TopicsContext';
 import { Link } from 'react-router-dom';
 import '../styling/topicsList.css';
+import { useContext } from 'react';
 
 function TopicsList() {
   const { topics } = useContext(TopicsContext);
@@ -14,8 +14,8 @@ function TopicsList() {
           return (
             <Link to={`/topics/${slug}`} className='topics-card'>
               {/* <div> */}
-              <h3>{slug}</h3>
-              <p>{description}</p>
+              <h3 className='topics-card__topic'>{slug}</h3>
+              <p className='topics-card__desc'>{description}</p>
               {/* </div> */}
             </Link>
           );

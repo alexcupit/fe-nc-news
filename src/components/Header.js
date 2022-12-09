@@ -6,9 +6,9 @@ import { UserContext } from '../contexts/UserContext';
 function Header() {
   const { user } = useContext(UserContext);
   return (
-    <header>
+    <header className='header'>
       <Link to='/'>NC NEWS</Link>
-      <Link to={user ? '/myaccount' : '/login'}>
+      <Link className='header__link' to={user ? '/myaccount' : '/login'}>
         <img
           className='header__img'
           alt='user icon'

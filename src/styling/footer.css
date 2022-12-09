@@ -1,6 +1,8 @@
 footer {
-  background-color: lightgrey;
+  background-color: var(--dark-shades);
   padding: 15px 0;
+  color: var(--light-shades);
+  font-size: 0.8rem;
 }
 
 @media screen and (max-width: 250px) {

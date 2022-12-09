@@ -1,6 +1,6 @@
 .articles-list {
   margin: 20px 10px;
-  border: maroon 5px solid;
+  /* border: maroon 5px solid; */
 }
 
 .articles-container {
@@ -12,20 +12,24 @@
 
 .articles-list__button {
   margin: 10px;
+  width: 75px;
 }
 
 .articles-options {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
+  margin-bottom: 5px;
 }
 
 .articles-options__label {
   margin: 0 5px;
+  width: min-content;
 }
 
 .articles-options__select {
   margin: 0 5px;
+  background-color: var(--light-shades);
 }
 
 @media screen and (min-width: 430px) {
