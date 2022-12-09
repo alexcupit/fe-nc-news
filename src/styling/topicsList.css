@@ -10,7 +10,7 @@
 
 .topics-card {
   margin: 10px;
-  background-color: var(--light-accent);
+  background-color: var(--dark-shades);
   border: 3px white solid;
   border-radius: 10px;
   width: 80%;
@@ -20,6 +20,10 @@
 .topics-card__topic,
 .topics-card__desc {
   color: white;
+}
+
+.topics-card__topic {
+  font-size: 1.3rem;
 }
 
 .topics-card:hover {

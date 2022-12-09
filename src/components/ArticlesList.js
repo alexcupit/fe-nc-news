@@ -29,7 +29,7 @@ function ArticlesList() {
         setArticlesLoading(false);
       })
       .catch((err) => setErr(err));
-  }, [page, topic, sort_by, order]);
+  }, [page, topic, sort_by, order, setErr]);
 
   useEffect(() => {
     if (!searchParams.get('sort_by')) {

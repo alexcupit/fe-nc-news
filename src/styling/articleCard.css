@@ -1,5 +1,5 @@
 .article-card {
-  border: 3px var(--main-color) solid;
+  border: 3px var(--light-accent) solid;
   background-color: var(--dark-shades);
   border-radius: 10px;
   margin: 10px 10px;
@@ -23,7 +23,7 @@
     'author author'
     'date date'
     'topic topic'
-    'votes comments';
+    'votescomments votescomments';
   place-items: center;
   margin: 10px 0;
 }
@@ -32,10 +32,12 @@
   border-bottom: 1px solid var(--dark-shades);
   color: var(--light-shades);
   grid-area: title;
+  font-size: 1.3rem;
+  margin: 0 5px;
 }
 
 .article-card__topic {
-  background-color: var(--main-color);
+  background-color: var(--light-accent);
   color: var(--dark-shades);
   padding: 2px;
   grid-area: topic;
@@ -52,15 +54,22 @@
 .article-card__author {
   color: var(--light-shades);
   grid-area: author;
+  font-size: 1.1rem;
 }
+
+.article-card__votescomments {
+  grid-area: votescomments;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
 .article-card__comments {
   color: var(--light-shades);
-  grid-area: comments;
   margin: 0 0;
 }
 .article-card__votes {
   color: var(--light-shades);
-  grid-area: votes;
   margin: 0 0;
 }
 
@@ -69,12 +78,7 @@
     margin: 10px 10px;
     width: 250px;
     height: 300px;
-    /* position: relative; */
   }
-  /* .article-card__topic {
-    position: absolute;
-    top: 160px;
-  } */
 }
 
 @media screen and (max-width: 250px) {

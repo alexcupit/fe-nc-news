@@ -24,7 +24,7 @@ function Article() {
       .catch((err) => {
         setErr(err);
       });
-  }, [setErr]);
+  }, [article_id, setErr]);
 
   if (err) {
     return <ErrorPage err={err} />;
@@ -32,7 +32,6 @@ function Article() {
     return <p>Loading...</p>;
   } else {
     const { title, author, created_at, body, topic, votes } = article;
-    console.log(created_at, 'created');
     const { year, month, day, time } = dateConversion(created_at);
     return (
       <main className='article-container'>
@@ -48,12 +47,13 @@ function Article() {
 
         <article className='article'>
           <h2 className='article__title'>{title}</h2>
-          <h4 className='article__author'>{author}</h4>
-          <h6 className='article__date'>
-            {day}/{month}/{year}
-            <br />
-            {time}
-          </h6>
+          <h3 className='article__author'>{author}</h3>
+          <div className='article__datetime'>
+            <h4 className='article__date'>
+              {day}/{month}/{year}
+            </h4>
+            <h4 className='article__time'>{time}</h4>
+          </div>
           <hr className='article__rule' />
           <p className='article__body'>{body}</p>
         </article>

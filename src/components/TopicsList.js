@@ -14,7 +14,7 @@ function TopicsList() {
           return (
             <Link to={`/topics/${slug}`} className='topics-card'>
               {/* <div> */}
-              <h3 className='topics-card__topic'>{slug}</h3>
+              <h2 className='topics-card__topic'>{slug}</h2>
               <p className='topics-card__desc'>{description}</p>
               {/* </div> */}
             </Link>

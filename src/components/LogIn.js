@@ -37,8 +37,8 @@ function LogIn() {
                   alt='user avatar'
                   className='usercard__img'
                 />
-                <h3 className='usercard__name'>{name}</h3>
-                <h4 className='usercard__username'>{username}</h4>
+                <h2 className='usercard__name'>{name}</h2>
+                <h3 className='usercard__username'>{username}</h3>
                 <button
                   onClick={() => {
                     setUser(user);
