@@ -23,9 +23,9 @@
   grid-template-areas:
     'avatar author date'
     'body body body'
-    'votes . delete';
+    'votes votes delete';
   text-align: left;
-  margin: 5px;
+  margin: 10px;
   padding: 10px;
   align-items: center;
 }
@@ -44,6 +44,12 @@
 .comment__votes {
   grid-area: votes;
   font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.comment-votes__totalvotes {
+  margin: 5px;
 }
 
 .comment__date {
@@ -61,9 +67,15 @@
   height: 30px;
   width: 30px;
   grid-area: avatar;
+  margin-right: 5px;
   background-color: white;
   border: var(--main-color) solid 2px;
   border-radius: 15px;
+}
+
+.comment__err {
+  display: block;
+  text-align: center;
 }
 
 @media screen and (max-width: 250px) {

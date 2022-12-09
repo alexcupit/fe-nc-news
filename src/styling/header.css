@@ -10,14 +10,19 @@
   background-color: var(--main-color);
 }
 
-.header__img {
+.header__usericon {
   height: 20px;
 }
 
-.header__link {
+.header__logolink {
+  height: 65px;
+}
+
+.header__userlink {
   display: flex;
   align-items: center;
   height: 0;
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 250px) {

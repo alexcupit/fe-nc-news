@@ -52,3 +52,9 @@ export const getTopics = () => {
 export const deleteCommentByCommentId = (comment_id) => {
   return newsAPI.delete(`/comments/${comment_id}`).then((res) => res.status);
 };
+
+export const patchCommentByCommentId = (comment_id, inc_votes) => {
+  return newsAPI
+    .patch(`/comments/${comment_id}`, { inc_votes })
+    .then((res) => res.data.comment);
+};
