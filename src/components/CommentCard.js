@@ -1,9 +1,5 @@
 import React, { useState, useContext } from 'react';
-import {
-  deleteCommentByCommentId,
-  getCommentsByArticleId,
-  patchCommentByCommentId,
-} from '../api.js';
+import { deleteCommentByCommentId, patchCommentByCommentId } from '../api.js';
 import { dateConversion } from '../utils/dateConversion.js';
 import { UserContext } from '../contexts/UserContext.js';
 
@@ -15,8 +11,8 @@ function CommentCard({ comment, setDeleted }) {
   const [commVotes, setCommVotes] = useState(votes);
   const [voteErr, setVoteErr] = useState(null);
 
-  const { day, month, year, time } = dateConversion(comment.created_at);
-  const commAuth = users.find((user) => user.username === comment.author);
+  const { day, month, year, time } = dateConversion(created_at);
+  const commAuth = users.find((user) => user.username === author);
 
   const handleDelete = (comment_id) => {
     return function (e) {
