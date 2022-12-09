@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# NC News - Front End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repo contains the front end development of the NC News app, using data obtained through my [NC News server](https://github.com/alexcupit/nc-news)
 
-## Available Scripts
+The site has been hosted and is live: https://acnews.netlify.app/
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+This site dispalys data from the northcoders news dataset.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+As a user, you can find various news articles, filtered by topic and ordered by date and their number of votes. Users can also vote on each article.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Authenticated user creation is not needed for this demo site and to access authenticated functionality, you can choose from the list of already existing users on the log in screen.
 
-### `npm test`
+As an authenticated user, you can leave a comment on an article and delete any previous comments made using that username.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+There is also error handling throughout to help guide users to take the correct action.
 
-### `npm run build`
+## Local usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This app can be run locally by cloning this repo and running `npm start`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This app was made using node v18.10.0
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Routes
 
-### `npm run eject`
+Here are some routes to use on this site:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[/](https://acnews.netlify.app/) - home page showing the latest articles from all topics
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[/topics](https://acnews.netlify.app/topics) - shows a list of all topics, also visible in the nav bar
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[/topics/cooking](https://acnews.netlify.app/topics/cooking) - shows a list of articles with a topic of cooking
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[/articles/34](https://acnews.netlify.app/articles/34) - an example article with relevant votes and comments
 
-## Learn More
+[/login](https://acnews.netlify.app/login) - ability to choose from pre-authenticated users
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[/myaccount](https://acnews.netlify.app/myaccount) - shows current logged in user and provides ability to log out
