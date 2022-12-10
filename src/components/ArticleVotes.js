@@ -5,6 +5,7 @@ import '../styling/articleVotes.css';
 function ArticleVotes({ article_id, votes }) {
   const [articleVotes, setArticleVotes] = useState(votes);
   const [err, setErr] = useState(null);
+  const [voteCount, setVoteCount] = useState(0);
 
   const handleVote = (e) => {
     let inc_votes = 0;
@@ -13,6 +14,7 @@ function ArticleVotes({ article_id, votes }) {
     } else if (e.target.innerText === '👍') {
       inc_votes = 1;
     }
+    setVoteCount((currVoteCount) => currVoteCount + inc_votes);
     setArticleVotes((currVotes) => currVotes + inc_votes);
     patchArticleById(article_id, inc_votes)
       .then(() => {})
@@ -26,7 +28,15 @@ function ArticleVotes({ article_id, votes }) {
   }
   return (
     <div className='article-votes'>
-      <button className='article-votes__downvote' onClick={handleVote}>
+      <button
+        className={
+          voteCount === -1
+            ? 'article-votes__button--disabled'
+            : 'article-votes__button'
+        }
+        onClick={handleVote}
+        disabled={voteCount === -1}
+      >
         👎
       </button>
       <p className='article-votes__totalvotes'>
@@ -34,7 +44,15 @@ function ArticleVotes({ article_id, votes }) {
         <br />
         {articleVotes}
       </p>
-      <button className='article-votes__upvote' onClick={handleVote}>
+      <button
+        className={
+          voteCount === 1
+            ? 'article-votes__button--disabled'
+            : 'article-votes__button'
+        }
+        onClick={handleVote}
+        disabled={voteCount === 1}
+      >
         👍
       </button>
     </div>

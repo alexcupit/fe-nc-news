@@ -73,6 +73,14 @@
   border-radius: 15px;
 }
 
+.comment-votes__button--disabled {
+  background-color: grey;
+}
+
+.comment-votes__button--disabled:hover {
+  background-color: grey;
+}
+
 .comment__err {
   display: block;
   text-align: center;

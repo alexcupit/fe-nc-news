@@ -1,5 +1,9 @@
-import React, { useState, useContext } from 'react';
-import { deleteCommentByCommentId, patchCommentByCommentId } from '../api.js';
+import React, { useState, useContext, useEffect } from 'react';
+import {
+  deleteCommentByCommentId,
+  getUsers,
+  patchCommentByCommentId,
+} from '../api.js';
 import { dateConversion } from '../utils/dateConversion.js';
 import { UserContext } from '../contexts/UserContext.js';
 
@@ -7,9 +11,17 @@ function CommentCard({ comment, setDeleted }) {
   const { author, body, created_at, votes, comment_id } = comment;
   const [commentDeleting, setCommentDeleting] = useState('');
   const [deleteErr, setDeleteErr] = useState(null);
-  const { user, users } = useContext(UserContext);
+  const { user, users, setUsers } = useContext(UserContext);
   const [commVotes, setCommVotes] = useState(votes);
   const [voteErr, setVoteErr] = useState(null);
+  const [commVoteCount, setcommVoteCount] = useState(0);
+
+  useEffect(() => {
+    // can this live in UsersContext?
+    getUsers().then((users) => {
+      setUsers(users);
+    });
+  }, []);
 
   const { day, month, year, time } = dateConversion(created_at);
   const commAuth = users.find((user) => user.username === author);
@@ -31,17 +43,16 @@ function CommentCard({ comment, setDeleted }) {
 
   const handleCommentVote = (e) => {
     let inc_votes = 0;
-    console.log(e.target.innerText);
     if (e.target.innerText === '👎') {
       inc_votes = -1;
     } else if (e.target.innerText === '👍') {
       inc_votes = 1;
     }
+    setcommVoteCount((currVoteCount) => currVoteCount + inc_votes);
     setCommVotes((currVotes) => currVotes + inc_votes);
     patchCommentByCommentId(comment_id, inc_votes)
       .then(() => {})
       .catch((err) => {
-        console.log();
         setCommVotes((currVotes) => currVotes - inc_votes);
         setVoteErr(err);
       });
@@ -56,24 +67,35 @@ function CommentCard({ comment, setDeleted }) {
   } else {
     return (
       <div className='comment' key={comment_id}>
-        <img
-          className='comment__avatar'
-          src={commAuth.avatar_url}
-          alt={`${author} profile avatar`}
-        />
+        {commAuth ? (
+          <img
+            className='comment__avatar'
+            src={commAuth.avatar_url}
+            alt={`${author} profile avatar`}
+          />
+        ) : null}
         <p className='comment__body'>{body}</p>
         <p className='comment__author'>{author}</p>
         <p className='comment__date'>{`${day}/${month}/${year} ${time}`}</p>
 
         <div className='comment__votes'>
           <button
-            className='comment-votes__downvote'
+            disabled={commVoteCount === -1}
+            className={
+              commVoteCount === -1 ? 'comment-votes__button--disabled' : null
+            }
             onClick={handleCommentVote}
           >
             👎
           </button>
           <p className='comment-votes__totalvotes'>Votes: {commVotes}</p>
-          <button className='comment-votes__upvote' onClick={handleCommentVote}>
+          <button
+            className={
+              commVoteCount === 1 ? 'comment-votes__button--disabled' : null
+            }
+            onClick={handleCommentVote}
+            disabled={commVoteCount === 1}
+          >
             👍
           </button>
         </div>

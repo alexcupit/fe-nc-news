@@ -1,10 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
+import { getUsers } from '../api';
 import { UserContext } from '../contexts/UserContext';
 import '../styling/login.css';
 
 function LogIn() {
-  const { setUser, user, users, usersLoading } = useContext(UserContext);
+  const { setUser, user, users, usersLoading, setUsers, setUsersLoading } =
+    useContext(UserContext);
+
+  useEffect(() => {
+    getUsers().then((users) => {
+      setUsers(users);
+      setUsersLoading(false);
+    });
+  }, []);
 
   if (user) {
     return <Navigate to='/myaccount' />; //should use redirect instead?
@@ -23,7 +32,7 @@ function LogIn() {
     return (
       <main className='login'>
         <h1>Log In</h1>
-        <p>
+        <p className='login__intro'>
           Please choose from one of the existing users below to use this site as
           an authenticated user:
         </p>

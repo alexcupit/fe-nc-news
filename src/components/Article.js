@@ -40,7 +40,9 @@ function Article() {
             <Link to='/'>Home</Link>
           </li>
           <li className='breadcrumb__item'>
-            {` > ${topic[0].toUpperCase() + topic.substring(1)}`}
+            <Link to={`/topics/${topic}`}>
+              {` > ${topic[0].toUpperCase() + topic.substring(1)}`}
+            </Link>
           </li>
           <li className='breadcrumb__item'>{` > ${title}`}</li>
         </ol>

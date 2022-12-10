@@ -1,11 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { getTopics } from '../api';
 import { TopicsContext } from '../contexts/TopicsContext';
 import '../styling/navbar.css';
 
 function Navbar() {
-  const { topics } = useContext(TopicsContext);
+  const { topics, setTopics } = useContext(TopicsContext);
   const location = useLocation();
+
+  useEffect(() => {
+    getTopics().then((topics) => {
+      setTopics(topics);
+    });
+  }, []);
 
   return (
     <nav>

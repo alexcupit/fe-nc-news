@@ -2,13 +2,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 20px 10px;
+}
+
+.login__intro {
+  margin: 0 20px;
 }
 
 .usercard {
   border: var(--main-color) 3px solid;
   background-color: var(--light-accent);
   border-radius: 10px;
-  margin: 20px;
+  margin: 10px;
+  width: 80%;
 }
 
 .usercard__name,
@@ -49,5 +55,16 @@
   .login {
     margin: 10px 0px;
     width: 250px;
+  }
+}
+
+@media screen and (min-width: 430px) {
+  .users-container {
+    margin: 20px 15vw;
+  }
+
+  .usercard {
+    width: 250px;
+    margin: 10px;
   }
 }

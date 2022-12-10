@@ -36,14 +36,22 @@
   transition: 0.3s;
 }
 
-.article-votes > button:hover {
+.article-votes__button:hover {
   background-color: var(--dark-accent);
   color: var(--light-shades);
 }
 
-.article-votes > button:active {
+.article-votes__button:active {
   background-color: var(--light-accent);
   transition: none;
+}
+
+.article-votes__button--disabled {
+  background-color: grey;
+}
+
+.article-votes__button--disabled:hover {
+  background-color: grey;
 }
 
 @media screen and (max-width: 250px) {
@@ -67,6 +75,7 @@
     grid-template-rows: auto auto auto;
     grid-template-areas: 'downvote' 'votes' 'upvote';
     align-items: center;
+    margin-top: 50px;
   }
 
   .article-votes__err {
