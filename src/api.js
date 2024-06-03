@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const newsAPI = axios.create({
-  baseURL: 'https://black-springbok-cap.cyclic.app/api/',
+  baseURL: 'https://be-nc-news-qp56.onrender.com',
 });
 
 export const getArticles = (page, topic, sort_by, order) => {
